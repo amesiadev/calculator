@@ -88,5 +88,27 @@ function calculate() {
   }
 }
 
+// --- Funciones para compartir ---
+
+function shareWhatsApp() {
+  const text = document.getElementById("result").innerText + "\n" + 
+               document.getElementById("bonusReminder").innerText;
+  const url = "https://wa.me/?text=" + encodeURIComponent(text);
+  showToast("📲 Abriendo WhatsApp…");
+  setTimeout(() => window.open(url, "_blank"), 800); // espera un poco antes de abrir
+}
+
+function shareFacebook() {
+  const text = document.getElementById("result").innerText + "\n" + 
+               document.getElementById("bonusReminder").innerText;
+  const url = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(text);
+  showToast("📢 Compartiendo en Facebook…");
+  setTimeout(() => window.open(url, "_blank"), 800);
+}
+
+function copyToClipboard() {
+  const text = document.getElementById("result").innerText + "\n" + 
+
+
 // Inicializar
 fetchRates();
