@@ -198,7 +198,6 @@ body {
   opacity: 0;
   transition: opacity 0.5s, bottom 0.5s;
 }
-
 #toast.show {
   visibility: visible;
   opacity: 1;
