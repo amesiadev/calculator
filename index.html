@@ -2,53 +2,42 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora AJMEXCHANGES</title>
+  <title>AJM Exchanges - Calculadora y Bonos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>💱 Calculadora AJMEXCHANGES</h1>
-    <p>Convierte <strong>Peso Colombiano</strong> o <strong>Dólares</strong> a <strong>Bolívares</strong>, siempre a la tasa oficial del BCV.  
-    Además, recibe un <span class="bonus">BONO especial</span> según tu monto.</p>
+  <h1>💱 AJM Exchanges</h1>
+  <p>Cambia tus USD o Pesos Colombianos a Bolívares al mejor precio, siempre a la tasa oficial del BCV.</p>
 
-    <!-- Calculadora -->
-<div class="calculator">
-  <input type="number" id="amount" placeholder="Ingresa el monto">
-  <select id="currency">
-    <option value="USD">USD</option>
-    <option value="COP">COP</option>
-  </select>
-  <button onclick="calculate()">Calcular</button>
-  <div id="result"></div>
-  <p id="bonusReminder" class="bonus-info"></p>
-</div>
+  <!-- Calculadora -->
+  <div class="calculator">
+    <input type="number" id="amount" placeholder="Ingresa el monto">
+    <select id="currency">
+      <option value="USD">USD</option>
+      <option value="COP">COP</option>
+    </select>
+    <button onclick="calculate()">Calcular</button>
+    <div id="result"></div>
+    <p id="bonusReminder" class="bonus-info"></p>
+  </div>
 
-    <div class="result" id="result"></div>
-
-    <div class="actions">
-      <button onclick="shareSocial()">📢 Compartir en Facebook</button>
-      <button onclick="shareWhatsApp()">📲 Enviar por WhatsApp</button>
-      <button onclick="copyResult()">📋 Copiar Resultado</button>
-    </div>
-
-    <!-- Bonos -->
-<h2>🎁 Bonos por monto</h2>
-<p id="bonusInfo" class="bonus-info"></p>
-<div id="bonusCards" class="bonus-container">
-  <div class="bonus-card" data-usd="10" data-bono="200"></div>
-  <div class="bonus-card" data-usd="25" data-bono="500"></div>
-  <div class="bonus-card" data-usd="50" data-bono="500"></div>
-  <div class="bonus-card" data-usd="100" data-bono="1000"></div>
-  <div class="bonus-card" data-usd="150" data-bono="1500"></div>
-  <div class="bonus-card" data-usd="200" data-bono="2000"></div>
-  <div class="bonus-card" data-usd="250" data-bono="2500"></div>
-  <div class="bonus-card" data-usd="300" data-bono="3000"></div>
-  <div class="bonus-card" data-usd="350" data-bono="3500"></div>
-  <div class="bonus-card" data-usd="400" data-bono="4000"></div>
-  <div class="bonus-card" data-usd="450" data-bono="4500"></div>
-  <div class="bonus-card" data-usd="500" data-bono="5000"></div>
-</div>
+  <!-- Bonos -->
+  <h2>🎁 Bonos por monto</h2>
+  <p id="bonusInfo" class="bonus-info"></p>
+  <div id="bonusCards" class="bonus-container">
+    <div class="bonus-card" data-usd="10" data-bono="200"></div>
+    <div class="bonus-card" data-usd="25" data-bono="500"></div>
+    <div class="bonus-card" data-usd="50" data-bono="500"></div>
+    <div class="bonus-card" data-usd="100" data-bono="1000"></div>
+    <div class="bonus-card" data-usd="150" data-bono="1500"></div>
+    <div class="bonus-card" data-usd="200" data-bono="2000"></div>
+    <div class="bonus-card" data-usd="250" data-bono="2500"></div>
+    <div class="bonus-card" data-usd="300" data-bono="3000"></div>
+    <div class="bonus-card" data-usd="350" data-bono="3500"></div>
+    <div class="bonus-card" data-usd="400" data-bono="4000"></div>
+    <div class="bonus-card" data-usd="450" data-bono="4500"></div>
+    <div class="bonus-card" data-usd="500" data-bono="5000"></div>
+  </div>
 
   <script src="app.js"></script>
 </body>
