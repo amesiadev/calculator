@@ -1,4 +1,4 @@
-const API_URL = "https://api.exchangerate.host/latest?base=USD&symbols=VES,COP";
+const API_URL = "https://openexchangerates.org/api/latest.json?app_id=8a2620eb6e304a559a3656342ae3b77b&base=USD&symbols=COP,VES";
 let rates = {};
 
 async function fetchRates() {
