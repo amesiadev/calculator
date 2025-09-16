@@ -12,18 +12,17 @@
     <p>Convierte <strong>Peso Colombiano</strong> o <strong>Dólares</strong> a <strong>Bolívares</strong>, siempre a la tasa oficial del BCV.  
     Además, recibe un <span class="bonus">BONO especial</span> según tu monto.</p>
 
-    <div class="calculator">
-      <input type="number" id="amount" placeholder="Ingrese monto">
-      <select id="currencyFrom">
-        <option value="USD">USD - Dólares</option>
-        <option value="COP">COP - Pesos Colombianos</option>
-      </select>
-      <span class="arrow">➡️</span>
-      <select id="currencyTo" disabled>
-        <option value="VES" selected>VES - Bolívares</option>
-      </select>
-      <button onclick="calculate()">Calcular</button>
-    </div>
+    <!-- Calculadora -->
+<div class="calculator">
+  <input type="number" id="amount" placeholder="Ingresa el monto">
+  <select id="currency">
+    <option value="USD">USD</option>
+    <option value="COP">COP</option>
+  </select>
+  <button onclick="calculate()">Calcular</button>
+  <div id="result"></div>
+  <p id="bonusReminder" class="bonus-info"></p>
+</div>
 
     <div class="result" id="result"></div>
 
@@ -33,30 +32,23 @@
       <button onclick="copyResult()">📋 Copiar Resultado</button>
     </div>
 
-    <h2>📊 Tabla de Bonos</h2>
-    <table id="bonusTable">
-      <thead>
-        <tr>
-          <th>Monto en USD</th>
-          <th>Bono en Bs</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>10</td><td>200</td></tr>
-        <tr><td>25</td><td>500</td></tr>
-        <tr><td>50</td><td>500</td></tr>
-        <tr><td>100</td><td>1000</td></tr>
-        <tr><td>150</td><td>1500</td></tr>
-        <tr><td>200</td><td>2000</td></tr>
-        <tr><td>250</td><td>2500</td></tr>
-        <tr><td>300</td><td>3000</td></tr>
-        <tr><td>350</td><td>3500</td></tr>
-        <tr><td>400</td><td>4000</td></tr>
-        <tr><td>450</td><td>4500</td></tr>
-        <tr><td>500</td><td>5000</td></tr>
-      </tbody>
-    </table>
-  </div>
+    <!-- Bonos -->
+<h2>🎁 Bonos por monto</h2>
+<p id="bonusInfo" class="bonus-info"></p>
+<div id="bonusCards" class="bonus-container">
+  <div class="bonus-card" data-usd="10" data-bono="200"></div>
+  <div class="bonus-card" data-usd="25" data-bono="500"></div>
+  <div class="bonus-card" data-usd="50" data-bono="500"></div>
+  <div class="bonus-card" data-usd="100" data-bono="1000"></div>
+  <div class="bonus-card" data-usd="150" data-bono="1500"></div>
+  <div class="bonus-card" data-usd="200" data-bono="2000"></div>
+  <div class="bonus-card" data-usd="250" data-bono="2500"></div>
+  <div class="bonus-card" data-usd="300" data-bono="3000"></div>
+  <div class="bonus-card" data-usd="350" data-bono="3500"></div>
+  <div class="bonus-card" data-usd="400" data-bono="4000"></div>
+  <div class="bonus-card" data-usd="450" data-bono="4500"></div>
+  <div class="bonus-card" data-usd="500" data-bono="5000"></div>
+</div>
 
   <script src="app.js"></script>
 </body>
