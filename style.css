@@ -1,89 +1,43 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f4f6f9;
-  margin: 0;
-  padding: 0;
+  margin: 20px;
+  background: #fafafa;
   color: #333;
 }
 
-.container {
-  max-width: 600px;
-  margin: 30px auto;
-  background: #fff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
 h1 {
+  text-align: center;
   color: #0077cc;
 }
 
-.bonus {
-  color: #e63946;
-  font-weight: bold;
-}
-
 .calculator {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 20px 0;
-  flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: center;
 }
 
-input, select, button {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+.calculator input, .calculator select {
+  padding: 8px;
+  margin: 5px;
+  font-size: 1em;
 }
 
-button {
-  cursor: pointer;
+.calculator button {
+  padding: 8px 12px;
   background: #0077cc;
-  color: #fff;
+  color: white;
   border: none;
-  font-weight: bold;
-  transition: 0.3s;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-button:hover {
+.calculator button:hover {
   background: #005fa3;
 }
 
-.result {
-  margin-top: 20px;
-  font-size: 1.1em;
-  font-weight: bold;
-  padding: 10px;
-  background: #eef6ff;
-  border-radius: 8px;
-}
-
-.actions {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-table {
-  width: 100%;
-  margin-top: 20px;
-  border-collapse: collapse;
-}
-
-table th, table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-}
-
-table th {
-  background: #0077cc;
-  color: #fff;
-}
 .bonus-info {
   background: #f1f8ff;
   border-left: 4px solid #0077cc;
@@ -101,6 +55,25 @@ table th {
   0% { box-shadow: 0 0 5px rgba(0,119,204,0.4); }
   50% { box-shadow: 0 0 20px rgba(0,119,204,0.9); }
   100% { box-shadow: 0 0 5px rgba(0,119,204,0.4); }
+}
+
+.bonus-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.bonus-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 6px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.bonus-card:hover {
+  transform: scale(1.05);
 }
 
 .bonus-card.highlight {
