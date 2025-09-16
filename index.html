@@ -20,7 +20,12 @@
     <div id="result"></div>
     <p id="bonusReminder" class="bonus-info"></p>
   </div>
-  
+  <!-- compartir-->
+  <div class="share-buttons">
+  <button onclick="shareWhatsApp()">Compartir en WhatsApp</button>
+  <button onclick="shareFacebook()">Compartir en Facebook</button>
+  <button onclick="copyToClipboard()">Copiar al portapapeles</button>
+  </div>
   <!-- Bonos -->
   <h2>🎁 Bonos por monto</h2>
   <p id="bonusInfo" class="bonus-info"></p>
@@ -38,12 +43,7 @@
     <div class="bonus-card" data-usd="450" data-bono="5000"></div>
     <div class="bonus-card" data-usd="500" data-bono="5500"></div>
   </div>
-  <!-- compartir-->
-  <div class="share-buttons">
-  <button onclick="shareWhatsApp()">Compartir en WhatsApp</button>
-  <button onclick="shareFacebook()">Compartir en Facebook</button>
-  <button onclick="copyToClipboard()">Copiar al portapapeles</button>
-  </div>
+  
   <div id="toast"></div>
   
   <script src="app.js"></script>
