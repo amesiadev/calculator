@@ -84,3 +84,49 @@ table th {
   background: #0077cc;
   color: #fff;
 }
+.bonus-info {
+  background: #f1f8ff;
+  border-left: 4px solid #0077cc;
+  padding: 10px 15px;
+  margin: 15px 0;
+  font-size: 0.95em;
+  color: #333;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 5px rgba(0,119,204,0.4); }
+  50% { box-shadow: 0 0 20px rgba(0,119,204,0.9); }
+  100% { box-shadow: 0 0 5px rgba(0,119,204,0.4); }
+}
+
+.bonus-card.highlight {
+  border: 2px solid gold;
+  animation: pulseGlow 2s infinite;
+  position: relative;
+  color: #b8860b; /* dorado */
+  font-weight: bold;
+}
+
+.bonus-card.highlight h3,
+.bonus-card.highlight p {
+  color: #b8860b;
+}
+
+.bonus-card.highlight::after {
+  content: "🎉";
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  font-size: 1.5em;
+  animation: floatEmoji 2s infinite;
+}
+
+@keyframes floatEmoji {
+  0% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-10px); opacity: 0.7; }
+  100% { transform: translateY(0); opacity: 1; }
+}
