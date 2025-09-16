@@ -68,11 +68,9 @@ function calculate() {
     <p>🇻🇪 ${bsValue.toLocaleString("es-VE", {minimumFractionDigits:2})} Bs (a tasa BCV)</p>
     <p class="bonus">🎁 Bono: ${bonus} Bs</p>
   `;
-  // Calcular total final (resultado en Bs + bono)
-let totalFinal = ${bsValue.toLocaleString("es-VE", {minimumFractionDigits:2})} + bonus;
-// Agregar al final del resultado
-resultDiv.innerHTML += `<br>✅ <strong>Total a recibir: ${totalFinal.toLocaleString("es-VE", {minimumFractionDigits:2, maximumFractionDigits:2})} Bs</strong>`;
-
+  
+  let totalFinal = bsValue + bonus;
+  resultDiv.innerHTML += `<br>✅ Total recibido: ${totalFinal.toLocaleString("es-VE", {minimumFractionDigits:2})} Bs`;
 
   // Mensaje dinámico debajo del resultado
   let minUsd = 10;
