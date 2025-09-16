@@ -103,3 +103,80 @@ h1 {
   50% { transform: translateY(-10px); opacity: 0.7; }
   100% { transform: translateY(0); opacity: 1; }
 }
+
+/* --- Base para que todo se escale correctamente --- */
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 10px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Calculadora --- */
+.calculator {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.calculator input,
+.calculator select,
+.calculator button {
+  width: 100%;
+  max-width: 300px;
+  margin: 8px auto;
+  display: block;
+  font-size: 1rem;
+}
+
+/* --- Tarjetas --- */
+.bonus-container {
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
+/* --- Breakpoints --- */
+
+/* Teléfonos pequeños (hasta 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .bonus-container {
+    grid-template-columns: 1fr; /* tarjetas en una sola columna */
+  }
+
+  .bonus-card {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+
+/* Tablets (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .bonus-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  }
+}
+
+/* Escritorio (769px a 1200px) */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .bonus-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+  }
+}
+
+/* Escritorio grande (1201px en adelante) */
+@media (min-width: 1201px) {
+  .bonus-container {
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas grandes */
+  }
+}
