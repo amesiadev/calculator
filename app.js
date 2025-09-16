@@ -3,7 +3,7 @@ let rates = { USD: 1, COP: 4000, VES: 36 }; // valores por defecto
 // Llamada al API de rates (ejemplo Open Exchange o exchangerate.host)
 async function fetchRates() {
   try {
-    let res = await fetch("https://api.exchangerate.host/latest?base=USD&symbols=COP,VES");
+    let res = await fetch("https://openexchangerates.org/api/latest.json?app_id=8a2620eb6e304a559a3656342ae3b77b&base=USD&symbols=COP,VES");
     let data = await res.json();
     rates["COP"] = data.rates.COP;
     rates["VES"] = data.rates.VES;
