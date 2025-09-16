@@ -1,12 +1,13 @@
-const API_URL = "https://openexchangerates.org/api/latest.json?app_id=8a2620eb6e304a559a3656342ae3b77b&base=USD&symbols=COP,VES";
-let rates = {};
+let rates = { USD: 1, COP: 4000, VES: 36 }; // valores por defecto
 
+// Llamada al API de rates (ejemplo Open Exchange o exchangerate.host)
 async function fetchRates() {
   try {
-    const res = await fetch(API_URL);
-    const data = await res.json();
-    rates = data.rates;
-    console.log("Tasas cargadas:", rates);
+    let res = await fetch("https://api.exchangerate.host/latest?base=USD&symbols=COP,VES");
+    let data = await res.json();
+    rates["COP"] = data.rates.COP;
+    rates["VES"] = data.rates.VES;
+    updateBonusCards();
   } catch (err) {
     console.error("Error cargando tasas:", err);
   }
@@ -87,25 +88,5 @@ function calculate() {
   }
 }
 
-
-function shareSocial() {
-  let text = document.getElementById('result').innerText;
-  let url = encodeURIComponent("https://ajmexchanges.com");
-  let shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${encodeURIComponent(text)}`;
-  window.open(shareUrl, '_blank');
-}
-
-function shareWhatsApp() {
-  let text = document.getElementById('result').innerText;
-  let url = `https://wa.me/?text=${encodeURIComponent(text)}`;
-  window.open(url, '_blank');
-}
-
-function copyResult() {
-  let text = document.getElementById('result').innerText;
-  navigator.clipboard.writeText(text).then(() => {
-    alert("✅ Resultado copiado al portapapeles");
-  });
-}
-
+// Inicializar
 fetchRates();
