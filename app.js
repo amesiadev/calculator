@@ -108,6 +108,19 @@ function shareFacebook() {
 
 function copyToClipboard() {
   const text = document.getElementById("result").innerText + "\n" + 
+               document.getElementById("bonusReminder").innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    showToast("✅ Información copiada al portapapeles");
+  });
+}
+
+// --- Toast notification ---
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.innerText = message;
+  toast.className = "show";
+  setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
+}
 
 
 // Inicializar
