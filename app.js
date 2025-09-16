@@ -67,7 +67,7 @@ function calculate() {
     <p>🇨🇴 ${copValue.toLocaleString("es-CO", {minimumFractionDigits:0})} COP</p>
     <p>🇻🇪 ${bsValue.toLocaleString("es-VE", {minimumFractionDigits:2})} Bs (a tasa BCV)</p>
     <p class="bonus">🎁 Bono: ${bonus} Bs</p>
-    <p>🇻🇪 ${bsValue.toLocaleString("es-VE", {minimumFractionDigits:2})++${bonus} } Bs </p>
+    <p>🇻🇪 ${bsValue.toLocaleString("es-VE", {minimumFractionDigits:2})+${bonus} } Bs </p>
   `;
 
   // Mensaje dinámico debajo del resultado
