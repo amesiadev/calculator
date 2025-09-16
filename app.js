@@ -12,46 +12,81 @@ async function fetchRates() {
   }
 }
 
-function getBonus(usdValue) {
-  if (usdValue >= 500) return 5000;
-  if (usdValue >= 450) return 4500;
-  if (usdValue >= 400) return 4000;
-  if (usdValue >= 350) return 3500;
-  if (usdValue >= 300) return 3000;
-  if (usdValue >= 250) return 2500;
-  if (usdValue >= 200) return 2000;
-  if (usdValue >= 150) return 1500;
-  if (usdValue >= 100) return 1000;
-  if (usdValue >= 50) return 500;
-  if (usdValue >= 25) return 500;
-  if (usdValue >= 10) return 200;
-  return 0;
+function updateBonusCards() {
+  let cards = document.querySelectorAll(".bonus-card");
+  cards.forEach(card => {
+    let usd = parseFloat(card.dataset.usd);
+    let bono = parseFloat(card.dataset.bono);
+    let copValue = usd * rates["COP"];
+
+    card.innerHTML = `
+      <h3>${usd} USD</h3>
+      <p>🇨🇴 ${copValue.toLocaleString("es-CO", {minimumFractionDigits: 0})} COP</p>
+      <p class="bonus">🎁 ${bono} Bs</p>
+    `;
+  });
+
+  // Mensaje dinámico general
+  let minUsd = 10;
+  let minCop = minUsd * rates["COP"];
+  document.getElementById("bonusInfo").innerText =
+    `💡 Recuerda: tus bonos aplican desde ${minUsd} USD (≈ ${minCop.toLocaleString("es-CO", {minimumFractionDigits: 0})} COP)`;
 }
 
 function calculate() {
-  let amount = parseFloat(document.getElementById('amount').value);
-  let currencyFrom = document.getElementById('currencyFrom').value;
+  let amount = parseFloat(document.getElementById("amount").value);
+  let currency = document.getElementById("currency").value;
+  let resultDiv = document.getElementById("result");
+  let bonusReminder = document.getElementById("bonusReminder");
 
   if (isNaN(amount) || amount <= 0) {
-    document.getElementById('result').innerHTML = "⚠️ Ingrese un monto válido";
+    resultDiv.innerHTML = "<p>Por favor, ingresa un monto válido.</p>";
+    bonusReminder.innerText = "";
     return;
   }
 
-  let usdValue = (currencyFrom === "COP") ? (amount / rates["COP"]) : amount;
-  let bolivares = usdValue * rates["VES"];
-  let bono = getBonus(usdValue);
-  let total = bolivares + bono;
+  let usdValue = currency === "USD" ? amount : amount / rates["COP"];
+  let bsValue = usdValue * rates["VES"];
+  let copValue = usdValue * rates["COP"];
 
-  let output = `
-    Monto ingresado: ${amount.toFixed(2)} ${currencyFrom}<br>
-    Equivalente en USD: ${usdValue.toFixed(2)} USD<br>
-    Equivalente en Bs (BCV): ${bolivares.toFixed(2)} Bs<br>
-    Bono aplicado: ${bono.toFixed(2)} Bs<br>
-    👉 Total a recibir: ${total.toFixed(2)} Bs
+  // Determinar bono
+  let bonus = 0;
+  let bonos = [10,25,50,100,150,200,250,300,350,400,450,500];
+  let bonosBs = [200,500,500,1000,1500,2000,2500,3000,3500,4000,4500,5000];
+  for (let i = bonos.length - 1; i >= 0; i--) {
+    if (usdValue >= bonos[i]) {
+      bonus = bonosBs[i];
+      break;
+    }
+  }
+
+  resultDiv.innerHTML = `
+    <h3>Resultado</h3>
+    <p>🇺🇸 ${usdValue.toFixed(2)} USD</p>
+    <p>🇨🇴 ${copValue.toLocaleString("es-CO", {minimumFractionDigits:0})} COP</p>
+    <p>🇻🇪 ${bsValue.toLocaleString("es-VE", {minimumFractionDigits:2})} Bs (a tasa BCV)</p>
+    <p class="bonus">🎁 Bono: ${bonus} Bs</p>
   `;
 
-  document.getElementById('result').innerHTML = output;
+  // Mensaje dinámico debajo del resultado
+  let minUsd = 10;
+  let minCop = minUsd * rates["COP"];
+  if (bonus > 0) {
+    bonusReminder.innerText = `🎊 ¡Felicidades! Calificas para un bono de ${bonus} Bs 🎁`;
+  } else {
+    bonusReminder.innerText =
+      `✨ Recuerda: los bonos aplican desde ${minUsd} USD (≈ ${minCop.toLocaleString("es-CO", {minimumFractionDigits:0})} COP)`;
+  }
+
+  // Resaltar tarjeta del bono
+  let cards = document.querySelectorAll(".bonus-card");
+  cards.forEach(c => c.classList.remove("highlight"));
+  if (bonus > 0) {
+    let targetCard = Array.from(cards).find(c => parseFloat(c.dataset.bono) === bonus);
+    if (targetCard) targetCard.classList.add("highlight");
+  }
 }
+
 
 function shareSocial() {
   let text = document.getElementById('result').innerText;
