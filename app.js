@@ -53,7 +53,7 @@ function calculate() {
   // Determinar bono
   let bonus = 0;
   let bonos = [10,25,50,100,150,200,250,300,350,400,450,500];
-  let bonosBs = [200,500,500,1000,1500,2000,2500,3000,3500,4000,4500,5000];
+  let bonosBs = [200,500,1000,1500,2000,2500,3000,3500,4000,4500,5000,5500];
   for (let i = bonos.length - 1; i >= 0; i--) {
     if (usdValue >= bonos[i]) {
       bonus = bonosBs[i];
