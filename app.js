@@ -28,7 +28,7 @@ function updateBonusCards() {
   });
 
   // Mensaje dinámico general
-  let minUsd = 10;
+  let minUsd = 5;
   let minCop = minUsd * rates["COP"];
   document.getElementById("bonusInfo").innerText =
     `💡 Recuerda: tus bonos aplican desde ${minUsd} USD (≈ ${minCop.toLocaleString("es-CO", {minimumFractionDigits: 0})} COP)`;
@@ -52,8 +52,8 @@ function calculate() {
 
   // Determinar bono
   let bonus = 0;
-  let bonos = [10,25,50,100,150,200,250,300,350,400,450,500];
-  let bonosBs = [200,500,1000,1500,2000,2500,3000,3500,4000,4500,5000,5500];
+  let bonos = [5,10,15,25,50,100,150,200,250,300,350,400,450,500];
+  let bonosBs = [100,200,300,500,1000,1500,2000,2500,3000,3500,4000,4500,5000,5500];
   for (let i = bonos.length - 1; i >= 0; i--) {
     if (usdValue >= bonos[i]) {
       bonus = bonosBs[i];
@@ -73,7 +73,7 @@ function calculate() {
   resultDiv.innerHTML += `<br>✅ Total recibido: ${totalFinal.toLocaleString("es-VE", {minimumFractionDigits:2})} Bs`;
 
   // Mensaje dinámico debajo del resultado
-  let minUsd = 10;
+  let minUsd = 5;
   let minCop = minUsd * rates["COP"];
   if (bonus > 0) {
     bonusReminder.innerText = `🎊 ¡Felicidades! Calificas para un bono de ${bonus} Bs 🎁`;
