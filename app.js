@@ -45,11 +45,11 @@ function calculate() {
     bonusReminder.innerText = "";
     return;
   }
-
+  let CurrencyVES = 220;
   let usdValue = currency === "USD" ? amount : amount / rates["COP"];
   let bsValue = usdValue * rates["VES"];
   let copValue = usdValue * rates["COP"];
-  let diffRates = 220 - rates["VES"];
+  let diffRates = CurrencyVES - rates["VES"];
   let bonus     = diffRates * usdValue;
 
   // Determinar bono
@@ -78,7 +78,7 @@ function calculate() {
   let minUsd = 5;
   let minCop = minUsd * rates["COP"];
   if (bonus > 0) {
-    bonusReminder.innerText = `🎊 ¡Felicidades! Calificas para un bono de ${bonus} Bs 🎁`;
+    bonusReminder.innerText = `🎊 ¡Felicidades! Calificas para un bono de ${bonus.toLocaleString("es-VE", {minimumFractionDigits:2})} Bs Bs 🎁`;
   } else {
     bonusReminder.innerText =
       `✨ Recuerda: los bonos aplican desde ${minUsd} USD (≈ ${minCop.toLocaleString("es-CO", {minimumFractionDigits:0})} COP)`;
