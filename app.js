@@ -68,7 +68,7 @@ function calculate() {
     <p>🇺🇸 ${usdValue.toFixed(2)} USD</p>
     <p>🇨🇴 ${copValue.toLocaleString("es-CO", {minimumFractionDigits:0})} COP</p>
     <p>🇻🇪 ${bsValue.toLocaleString("es-VE", {minimumFractionDigits:2})} Bs (a tasa BCV)</p>
-    <p class="bonus">🎁 Bono: ${bonus} Bs</p>
+    <p class="bonus">🎁 Bono: ${bonus.toLocaleString("es-VE", {minimumFractionDigits:2})} Bs</p>
   `;
   
   let totalFinal = bsValue + bonus;
