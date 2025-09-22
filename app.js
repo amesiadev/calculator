@@ -49,9 +49,11 @@ function calculate() {
   let usdValue = currency === "USD" ? amount : amount / rates["COP"];
   let bsValue = usdValue * rates["VES"];
   let copValue = usdValue * rates["COP"];
+  let diffRates = 220 - rates["VES"];
+  let bonus     = diffRates * usdValue;
 
   // Determinar bono
-  let bonus = 0;
+  /*let bonus = 0;
   let bonos = [5,10,15,25,50,100,150,200,250,300,350,400,450,500,1000];
   let bonosBs = [100,200,300,500,1000,1500,2000,2500,3000,3500,4000,4500,5000,5500,10500];
   for (let i = bonos.length - 1; i >= 0; i--) {
@@ -59,7 +61,7 @@ function calculate() {
       bonus = bonosBs[i];
       break;
     }
-  }
+  }*/
 
   resultDiv.innerHTML = `
     <h3>Resultado</h3>
